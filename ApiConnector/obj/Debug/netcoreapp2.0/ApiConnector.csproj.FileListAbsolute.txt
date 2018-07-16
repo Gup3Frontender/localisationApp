@@ -1,0 +1,11 @@
+C:\ProjektSDA\ApiConnector\ApiConnector\bin\Debug\netcoreapp2.0\ApiConnector.deps.json
+C:\ProjektSDA\ApiConnector\ApiConnector\bin\Debug\netcoreapp2.0\ApiConnector.runtimeconfig.json
+C:\ProjektSDA\ApiConnector\ApiConnector\bin\Debug\netcoreapp2.0\ApiConnector.runtimeconfig.dev.json
+C:\ProjektSDA\ApiConnector\ApiConnector\bin\Debug\netcoreapp2.0\ApiConnector.dll
+C:\ProjektSDA\ApiConnector\ApiConnector\bin\Debug\netcoreapp2.0\ApiConnector.pdb
+C:\ProjektSDA\ApiConnector\ApiConnector\obj\Debug\netcoreapp2.0\ApiConnector.csprojAssemblyReference.cache
+C:\ProjektSDA\ApiConnector\ApiConnector\obj\Debug\netcoreapp2.0\ApiConnector.csproj.CoreCompileInputs.cache
+C:\ProjektSDA\ApiConnector\ApiConnector\obj\Debug\netcoreapp2.0\ApiConnector.AssemblyInfoInputs.cache
+C:\ProjektSDA\ApiConnector\ApiConnector\obj\Debug\netcoreapp2.0\ApiConnector.AssemblyInfo.cs
+C:\ProjektSDA\ApiConnector\ApiConnector\obj\Debug\netcoreapp2.0\ApiConnector.dll
+C:\ProjektSDA\ApiConnector\ApiConnector\obj\Debug\netcoreapp2.0\ApiConnector.pdb
