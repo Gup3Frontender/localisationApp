@@ -7,6 +7,7 @@ using System.Text;
 
 namespace ApiConnector
 {
+
     public class RequestSender
     {
         /// <summary>
@@ -40,13 +41,13 @@ namespace ApiConnector
             }
         }
 
-        public void FindNear(Place searchPlace, string type)
+        public ListOfResults FindNear(Place searchPlace, string type)
         {
             if (searchPlace != null)
             {
 
                 string nearByRequestString = 
-                    $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={searchPlace.Coordinates}&radius=1700&type={type}&key=AIzaSyCIxaqwOzo2dsq8cUsKlkgQcjRH4w1LRRY";
+                    $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={searchPlace.Coordinates}&radius=700&type={type}&key=AIzaSyCIxaqwOzo2dsq8cUsKlkgQcjRH4w1LRRY";
                 WebRequest Request = WebRequest.Create(nearByRequestString);
                 WebResponse response = Request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
@@ -56,60 +57,13 @@ namespace ApiConnector
                 string jsonResponse = reader.ReadToEnd();
 
                 ListOfResults listOfResults = JsonConvert.DeserializeObject<ListOfResults>(jsonResponse);
-            }
-        }
-    }
 
-    public class Place
-    {
-        public Candidates[] candidates;
-        public string Name
-        {
-            get
+                return listOfResults;
+            }
+            else
             {
-                 return candidates[0].name;
+                return null;
             }
         }
-        public string Coordinates
-        {
-            get
-            {
-                string coordinates = string.Empty;
-                coordinates += candidates[0].geometry.location.lat.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                coordinates += ", ";
-                coordinates += candidates[0].geometry.location.lng.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                return coordinates;
-            }
-        }
-    }
-
-    public class ListOfResults
-    {
-        public Results[] results;
-    }
-
-    public class Results
-    {
-        public Geometry geometry;
-        public string name;
-        public string id;
-        public string vicinity;
-    }
-
-    public class Candidates
-    {
-        public Geometry geometry;
-        public string name;
-    }
-
-    public class Geometry
-    {
-        public Location location;
-    }
-
-    public class Location
-    {
-        public float lat;
-        public float lng;
     }
 }

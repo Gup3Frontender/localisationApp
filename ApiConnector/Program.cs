@@ -6,23 +6,45 @@ namespace ApiConnector
     {
         static void Main(string[] args)
         {
-            
             Run();
         }
 
         static void Run()
         {
-            RequestSender RS = new RequestSender();
+            LivingRatingCategory livingRatingCategory = new LivingRatingCategory();
+            TouristicRatingCategory touristicRatingCategory = new TouristicRatingCategory();
 
-            Console.WriteLine("Gdzie jesteś?");
-            string input = Console.ReadLine();
+            Console.WriteLine(livingRatingCategory.Rating());
 
-            Console.WriteLine("czego szukasz?");
-            string type = Console.ReadLine();
-            
-            RS.FindNear(RS.GetLocalisationByName(input) ,type);
+            PlaceQuantitySearcher searcher = new PlaceQuantitySearcher();
+            Console.WriteLine("Gdzie szukasz miejsca do życia?");
+            searcher.FillPlaceQuantities(Console.ReadLine(), ChooseCategory());
+
+            Console.WriteLine(livingRatingCategory.Rating());
 
             Console.Read();
+        }
+
+        static AbstractRatingCategory ChooseCategory()
+        {
+            LivingRatingCategory livingRatingCategory = new LivingRatingCategory();
+            TouristicRatingCategory touristicRatingCategory = new TouristicRatingCategory();
+
+            Console.WriteLine("Chcesz tam mieszkać (live) czy tylko zwiedzić? (travel)");
+            string choice = Console.ReadLine();
+
+            if(choice == "live")
+            {
+                return livingRatingCategory;
+            }
+            else if(choice == "travel")
+            {
+                return touristicRatingCategory;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
